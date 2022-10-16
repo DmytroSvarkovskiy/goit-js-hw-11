@@ -34,12 +34,10 @@ async function getUser() {
 }
 
 const onSubmitClick = event => {
-   gallery.innerHTML = '';
+  gallery.innerHTML = '';
   event.preventDefault();
   page = 1;
   getUser()
  
-    
-    
 }
 form.addEventListener('submit', onSubmitClick);
