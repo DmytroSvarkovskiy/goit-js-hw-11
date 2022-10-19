@@ -1,9 +1,9 @@
 import card from './templates/card.hbs'
+
 import Notiflix from 'notiflix';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
-const debounce = require('lodash.debounce');
 const gallery = document.querySelector('.gallery');
 const btnMore=document.querySelector('[type="button"]')
 const axios = require('axios').default;
@@ -32,7 +32,6 @@ function createElements(response) {
         setTimeout(() => {
       Notiflix.Notify.info("Were sorry, but you've reached the end of search results.");
         }, 1000);
-       
    }
 }
   
@@ -63,11 +62,9 @@ function onSubmitClick(event) {
     return;
   }
     getUser().then(res=>auditAndBuild(res)).catch(err=>console.log(err))
- 
 }
 
-const onBtnMoreClick = () => {
-  
+function onBtnMoreClick (){
   page +=1;
   getUser().then(res => moreBuild(res)).catch(err => console.log(err)) 
 }
